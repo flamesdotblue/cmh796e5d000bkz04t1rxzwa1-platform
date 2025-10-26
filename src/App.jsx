@@ -1,28 +1,72 @@
-import { useState } from 'react'
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import SubjectGrid from "./components/SubjectGrid";
+import ProgressDashboard from "./components/ProgressDashboard";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const subjects = [
+    {
+      id: "science",
+      title: "Science",
+      description: "Explore physics, biology, earth & space through quests.",
+      icon: "Rocket",
+      color: "from-emerald-500 to-teal-600",
+      progress: 42,
+    },
+    {
+      id: "mathematics",
+      title: "Mathematics",
+      description: "Master arithmetic, algebra, geometry and statistics.",
+      icon: "Calculator",
+      color: "from-indigo-500 to-blue-600",
+      progress: 28,
+    },
+    {
+      id: "technology",
+      title: "Technology",
+      description: "Learn coding, AI basics and build simple apps.",
+      icon: "Cpu",
+      color: "from-fuchsia-500 to-purple-600",
+      progress: 10,
+    },
+    {
+      id: "engineering",
+      title: "Engineering",
+      description: "Mechanics, circuits and renewable energy challenges.",
+      icon: "Wrench",
+      color: "from-amber-500 to-orange-600",
+      progress: 16,
+    },
+    {
+      id: "arts",
+      title: "Arts & Creativity",
+      description: "Music, drawing, storytelling and dance activities.",
+      icon: "Palette",
+      color: "from-rose-500 to-pink-600",
+      progress: 55,
+    },
+    {
+      id: "recreation",
+      title: "Recreational",
+      description: "DIY experiments, puzzles and robotics challenges.",
+      icon: "Puzzle",
+      color: "from-lime-500 to-green-600",
+      progress: 33,
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50 text-gray-900">
+      <Header />
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Hero />
+        <ProgressDashboard />
+        <SubjectGrid subjects={subjects} />
+      </main>
+      <footer className="mt-16 border-t border-gray-200 py-8 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} ThutoQuest · Made for young explorers across Africa and the world
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
